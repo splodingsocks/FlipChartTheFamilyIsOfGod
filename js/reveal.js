@@ -317,7 +317,7 @@ var Reveal = (function(){
 		setupDOM();
 
 		// Resets all vertical slides so that only the first is visible
-		resetVerticalSlides();
+		// resetVerticalSlides();
 
 		// Updates the presentation to match the current configuration values
 		configure();
@@ -1547,18 +1547,18 @@ var Reveal = (function(){
 
 			// Reset all slides upon navigate to home
 			// Issue: #285
-			if ( document.querySelector( HOME_SLIDE_SELECTOR ).classList.contains( 'present' ) ) {
-				// Launch async task
-				setTimeout( function () {
-					var slides = toArray( document.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR + '.stack') ), i;
-					for( i in slides ) {
-						if( slides[i] ) {
-							// Reset stack
-							setPreviousVerticalIndex( slides[i], 0 );
-						}
-					}
-				}, 0 );
-			}
+			// if ( document.querySelector( HOME_SLIDE_SELECTOR ).classList.contains( 'present' ) ) {
+			// 	// Launch async task
+			// 	setTimeout( function () {
+			// 		var slides = toArray( document.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR + '.stack') ), i;
+			// 		for( i in slides ) {
+			// 			if( slides[i] ) {
+			// 				// Reset stack
+			// 				setPreviousVerticalIndex( slides[i], 0 );
+			// 			}
+			// 		}
+			// 	}, 0 );
+			// }
 		}
 
 		// Handle embedded content
