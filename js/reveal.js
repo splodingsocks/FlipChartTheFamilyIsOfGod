@@ -212,7 +212,9 @@ var Reveal = (function(){
 
 		// Loads the dependencies and continues to #start() once done
 		load();
-
+    
+    // Sets up a random generator with a seed that is consistently random
+    Math.seedrandom("revealjs");
 	}
 
 	/**
@@ -442,7 +444,8 @@ var Reveal = (function(){
 				backgroundColor: slide.getAttribute( 'data-background-color' ),
 				backgroundRepeat: slide.getAttribute( 'data-background-repeat' ),
 				backgroundPosition: slide.getAttribute( 'data-background-position' ),
-				backgroundTransition: slide.getAttribute( 'data-background-transition' )
+				backgroundTransition: slide.getAttribute( 'data-background-transition' ),
+        backgroundRandom: slide.getAttribute( 'data-background-random')
 			};
 
 			var element = document.createElement( 'div' );
@@ -469,6 +472,13 @@ var Reveal = (function(){
 			if( data.backgroundRepeat ) element.style.backgroundRepeat = data.backgroundRepeat;
 			if( data.backgroundPosition ) element.style.backgroundPosition = data.backgroundPosition;
 			if( data.backgroundTransition ) element.setAttribute( 'data-background-transition', data.backgroundTransition );
+
+      if( data.backgroundRandom ) {
+        debugger
+        var rand = Math.floor(Math.random() * 398);
+        var hsl = "hsl(" + rand + ", 69%, 67%)";
+        element.style.backgroundColor = hsl;
+      }
 
 			container.appendChild( element );
 
